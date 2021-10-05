@@ -1,0 +1,49 @@
+<div class="row m-3">
+    <div class="col-md-12">
+        <a routerLink="/">
+            <i class="fa fa-arrow-circle-left" aria-hidden="true"></i> Back to Dashbord
+        </a>
+    </div>
+</div>
+<div class="row ">
+    <div class="col bg-black">
+        <div class="card col-md-8">
+            <div class="card-body col-12">
+                <form #formClient="ngForm" (ngSubmit)="onSubmit()">
+
+                    <h5 class="card-title">New Client</h5>
+                    <div class="form-group">
+                        <label for="firstName">First Name</label>
+                        <input [ngClass]="{'is-invalide': _firstName.errors && _firstName.touched}" #_firstName="ngModel" [(ngModel)]="_client.firstName" id="firstName" class="form-control" type="text" name="_firstName" required>
+                        <div [hidden]="!_firstName.errors?.required" class="invalid-feedback">
+                            First name is required
+                        </div>
+
+                    </div>
+                    <div class="form-group">
+                        <label for="lastName">Last Name</label>
+                        <input #_lastName="ngModel" [(ngModel)]="_client.lastName" id="lastName" class="form-control" type="text" name="_lastName" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input #_email="ngModel" [(ngModel)]="_client.email" id="email" class="form-control" type="email" name="_email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="phoneNumber">Phone Number</label>
+                        <input #_phoneNumber="ngModel" [(ngModel)]="_client.number" id="phoneNumber" class="form-control" type="tel" name="_phoneNumber">
+                    </div>
+                    <div class="form-group">
+                        <label for="balance">Balance</label>
+                        <input #_Balance="ngModel" [(ngModel)]="_client.balance" id="balance" class="form-control" type="number" name="_balance">
+                    </div>
+                    <div class="form-group mt-3 text-center">
+                        <button class="btn btn-success" [disabled]="!formClient.valid">Submite <i class="fa fa-plus-circle" aria-hidden="true"></i></button>
+                    </div>
+
+
+                </form>
+            </div>
+        </div>
+
+    </div>
+</div>

@@ -1,0 +1,11 @@
+{
+  "targets": {
+    "getsionclion": {
+      "hosting": {
+        "gestionClient": [
+          "getsionclion"
+        ]
+      }
+    }
+  }
+}

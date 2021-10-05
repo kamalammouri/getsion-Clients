@@ -1,0 +1,37 @@
+<div class="container pt-4">
+    <div class="row m-2 justify-content-between">
+        <div class="col-3">
+            <a routerLink="client/add" class="btn btn-success"><i class="fa fa-user-plus" aria-hidden="true"></i> Ajouter</a>
+        </div>
+        <div class="col-3">
+            <p>Total : {{this.total|currency:"USD"}}</p>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-12">
+            <table class="table table-light">
+                <thead class="table-primary">
+                    <tr>
+                        <th>Full Name</th>
+                        <th>Email</th>
+                        <th>Balance</th>
+                        <th>Edit</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let client of this._clients">
+                        <td>{{client.firstName}} {{client.lastName}}</td>
+                        <td>{{client.email}}</td>
+                        <td>{{client.balance | currency:"USD"}}</td>
+                        <td>
+                            <a routerLink="client/{{client.id}}" class="btn btn-info"><i class="fa fa-info-circle text-white" aria-hidden="true"></i></a>
+                            <a href="" class="btn btn-warning"><i class="fa fa-pencil text-white" aria-hidden="true"></i></a>
+                        </td>
+                    </tr>
+                </tbody>
+
+            </table>
+        </div>
+    </div>
+</div>
