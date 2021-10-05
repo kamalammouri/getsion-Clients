@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { AngularFirestore, AngularFirestoreCollection } from '@angular/fire/firestore';
+import { AngularFirestore, AngularFirestoreCollection, AngularFirestoreDocument } from '@angular/fire/firestore';
 import { ClientModule } from '../modules/client';
 import { map } from 'rxjs/operators';
 import { Observable } from 'rxjs';
@@ -12,6 +12,7 @@ import { Observable } from 'rxjs';
 export class ClientService {
 
   ClientCollection:AngularFirestoreCollection<ClientModule>;
+  ClientDoc!: AngularFirestoreDocument<ClientModule>;
 
   constructor(private afs:AngularFirestore) {
 
@@ -36,6 +37,15 @@ export class ClientService {
 
   getClient(id:string){
   return this.ClientCollection.doc(id).valueChanges();
+  }
+
+  deleteClient(id:string){
+    this.ClientCollection.doc(id);
+  }
+
+  updateClient(client:ClientModule){
+    this.ClientDoc= this.ClientCollection.doc(client.id);
+    this.ClientDoc.update(client);
   }
 
 

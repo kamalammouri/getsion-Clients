@@ -1,4 +1,4 @@
-import { Router, Routes } from '@angular/router';
+import { Router } from '@angular/router';
 import { ClientService } from './../../services/client.service';
 import { Component, OnInit, NgModule } from '@angular/core';
 import { ClientModule } from 'src/app/modules/client';

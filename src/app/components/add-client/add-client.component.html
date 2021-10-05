@@ -6,12 +6,12 @@
     </div>
 </div>
 <div class="row ">
-    <div class="col bg-black">
-        <div class="card col-md-8">
+    <div class="col">
+        <div class="card col-md-8 m-auto">
             <div class="card-body col-12">
                 <form #formClient="ngForm" (ngSubmit)="onSubmit()">
 
-                    <h5 class="card-title">New Client</h5>
+                    <h5 class="card-title text-center">New Client</h5>
                     <div class="form-group">
                         <label for="firstName">First Name</label>
                         <input [ngClass]="{'is-invalide': _firstName.errors && _firstName.touched}" #_firstName="ngModel" [(ngModel)]="_client.firstName" id="firstName" class="form-control" type="text" name="_firstName" required>
