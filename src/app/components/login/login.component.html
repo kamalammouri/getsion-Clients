@@ -1,1 +1,30 @@
-<p>login works!</p>
+<div class="container">
+    <div class="row">
+        <div class="col-md-6 mx-auto">
+            <div class="card mt-5">
+                <div class="card-body py-5">
+                    <div class="text-center"><span class="bg-primary text-white p-1"> <i class="fa fa-lock" aria-hidden="true"></i> Login</span><span style="font-weight: 700;font-size: 1.2rem;"> Panel</span></div>
+                    <form (ngSubmit)="onLogin()">
+                        <div class="form-group">
+                            <label for="login">Email</label>
+                            <input #_email="ngModel" [(ngModel)]="$email" [ngClass]="{'is-invalid': _email.errors && _email.touched}" id="login" class="form-control" type="email" name="email" required>
+                            <div [hidden]="!_email.errors?.required" class="invalid-feedback"> Entre Valid Email</div>
+                        </div>
+                        <div class="form-group">
+                            <label for="password">Password</label>
+                            <input #_password="ngModel" [(ngModel)]="$password" [ngClass]="{'is-invalid': _password.errors && _password.touched}" id="password" class="form-control" type="password" name="password" required minlength="5">
+                            <div [hidden]="!_password.errors?.required" class="invalid-feedback"> Entre Valid Passwords</div>
+                        </div>
+                        <div class="form-group mt-4">
+                            <input [disabled]="!_email.valid || !_password.valid" type="submit" value="Login" class="form-control btn btn-primary">
+                        </div>
+                        <div class="form-group mt-4">
+                            <button (click)="onLoginGmail()" class="form-control btn btn-danger"><i class="fa fa-google-plus" aria-hidden="true"></i>  Google Account</button>
+                        </div>
+
+                    </form>
+                </div>
+            </div>
+
+        </div>
+    </div>

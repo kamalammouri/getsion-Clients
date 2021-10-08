@@ -14,7 +14,7 @@
                         <h5 class="card-title text-center">Edit Client</h5>
                         <div class="form-group">
                             <label for="firstName">First Name</label>
-                            <input [ngClass]="{'is-invalide': _firstName.errors && _firstName.touched}" #_firstName="ngModel" [(ngModel)]="_client.firstName" id="firstName" class="form-control" type="text" name="_firstName" required>
+                            <input [ngClass]="{'is-invalid': _firstName.errors && _firstName.touched}" #_firstName="ngModel" [(ngModel)]="_client.firstName" id="firstName" class="form-control" type="text" name="_firstName" required>
                             <div [hidden]="!_firstName.errors?.required" class="invalid-feedback">
                                 First name is required
                             </div>

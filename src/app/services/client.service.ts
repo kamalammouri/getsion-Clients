@@ -39,12 +39,12 @@ export class ClientService {
   return this.ClientCollection.doc(id).valueChanges();
   }
 
-  deleteClient(id:string){
-    this.ClientCollection.doc(id);
+  deleteClient(client:ClientModule){
+    this.ClientDoc = this.ClientCollection.doc(client.id);
+    this.ClientDoc.delete();
   }
-
   updateClient(client:ClientModule){
-    this.ClientDoc= this.ClientCollection.doc(client.id);
+    this.ClientDoc = this.ClientCollection.doc(client.id);
     this.ClientDoc.update(client);
   }
 

@@ -14,7 +14,7 @@
                     <h5 class="card-title text-center">New Client</h5>
                     <div class="form-group">
                         <label for="firstName">First Name</label>
-                        <input [ngClass]="{'is-invalide': _firstName.errors && _firstName.touched}" #_firstName="ngModel" [(ngModel)]="_client.firstName" id="firstName" class="form-control" type="text" name="_firstName" required>
+                        <input [ngClass]="{'is-invalid': _firstName.errors && _firstName.touched}" #_firstName="ngModel" [(ngModel)]="_client.firstName" id="firstName" class="form-control" type="text" name="_firstName" required>
                         <div [hidden]="!_firstName.errors?.required" class="invalid-feedback">
                             First name is required
                         </div>
@@ -22,7 +22,11 @@
                     </div>
                     <div class="form-group">
                         <label for="lastName">Last Name</label>
-                        <input #_lastName="ngModel" [(ngModel)]="_client.lastName" id="lastName" class="form-control" type="text" name="_lastName" required>
+                        <input [ngClass]="{'is-invalid': _lastName.errors && _lastName.touched}" #_lastName="ngModel" [(ngModel)]="_client.lastName" id="lastName" class="form-control" type="text" name="_lastName" required>
+                        <div [hidden]="!_lastName.errors?.required" class="invalid-feedback">
+                            Last name is required
+                        </div>
+
                     </div>
                     <div class="form-group">
                         <label for="email">Email</label>
