@@ -5,4 +5,5 @@ export interface ClientModule{
     email?:string;
     number?:number;
     balance?:number;
+    userUID?:string;
 }

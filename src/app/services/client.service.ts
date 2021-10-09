@@ -19,9 +19,9 @@ export class ClientService {
     this.ClientCollection= this.afs.collection('clients');
   }
 
-    getClientCollection(): Observable<ClientModule[]> {
+    getClientCollection(userUID:string): Observable<ClientModule[]> {
 
-    return this.ClientCollection.snapshotChanges()
+    return this.afs.collection('clients',ref=>ref.where('userUID','==',userUID)).snapshotChanges()
     .pipe(
         map(actions => actions.map(a => {
         const data = a.payload.doc.data() as any;

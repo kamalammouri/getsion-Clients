@@ -4,7 +4,10 @@
             <a routerLink="client/add" class="btn btn-success"><i class="fa fa-user-plus" aria-hidden="true"></i> Ajouter</a>
         </div>
         <div class="col-3">
-            <p>Total : {{this.total|currency:"USD"}}</p>
+          <strong><p>Total : {{this.total|currency:"USD"}}</p></strong>
+        </div>
+        <div class="col-3">
+         <input #inpu_search type="search" name="search" id="search" placeholder="Search"/>
         </div>
     </div>
 

@@ -3,6 +3,7 @@ import { ClientService } from './../../services/client.service';
 import { Component, OnInit, NgModule } from '@angular/core';
 import { ClientModule } from 'src/app/modules/client';
 import { FlashMessagesService } from 'angular2-flash-messages';
+import { AuthClientService } from 'src/app/services/auth-client.service';
 
 @Component({
   selector: 'app-add-client',
@@ -16,13 +17,15 @@ export class AddClientComponent implements OnInit {
     lastName:"",
     email:"",
     number:0,
-    balance:0
+    balance:0,
+    userUID:""
   }
 
-  constructor(private clientService:ClientService,private route:Router,private flashMessage:FlashMessagesService) {
+  constructor(private clientService:ClientService,private authClient:AuthClientService,private route:Router,private flashMessage:FlashMessagesService) {
 
 }
   ngOnInit(): void {
+    this.authClient.getAuth().subscribe(auth=>this._client.userUID=auth?.uid);
   }
   onSubmit(){
     this.clientService.postClient(this._client);
